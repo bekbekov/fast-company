@@ -8,13 +8,17 @@ function Users() {
     setUsers(users.filter((el) => el._id !== id));
   };
 
-  const renderPhrase = (number) => {};
+  const renderPhrase = (number) => {
+    if (number === 1) return 'guy';
+    if (number > 1) return 'guys';
+    return 'guys';
+  };
 
   return (
     <div>
       <span className={`badge bg-${users.length >= 1 ? 'primary' : 'danger'}`}>
         {users.length >= 1
-          ? `${users.length} guys will hung out with you today ;)`
+          ? `${users.length} ${renderPhrase(users.length)} will hung out with you today ;)`
           : 'No one will go out with you today :/'}
       </span>
       <table className="table">
